@@ -31,8 +31,18 @@ function populateBits(bits) {
 }
 
 function populateSwitchs(size) {
-   for (let i=size-1; i>=0; i--) {
-       document.getElementById("switchs").innerHTML += `
+    for (let i=size-1; i>=0; i--) {
+        if (i==size-1)
+            /* Add extra  */
+            document.getElementById("switchs").innerHTML += `
+<div class="checkButton">
+  <label class="switch">
+    <input type="checkbox" onchange="swapBit(bits, ${i})">
+    <span class="slider round"></span>
+  </label>
+</div>`;
+        else
+            document.getElementById("switchs").innerHTML += `
 <div class="checkButton">
   <label class="switch">
     <input type="checkbox" onchange="swapBit(bits, ${i})">
@@ -76,6 +86,16 @@ function swapEncoding(bits, size, state) {
           `-2<sup>${size-1}`;
     document.getElementById("signWeight").innerHTML =
         newWeight;
+    /* Change color */
+    const color = state.sign > 0 ?
+          "initial" :
+          "red" ;
+    let signElements = document.getElementsByClassName('sign');
+    for (let signElement of signElements) 
+        signElement.style.color = color;
+
+
+    /* Update value */
     populateValue(bits, size, state);
 }
 
