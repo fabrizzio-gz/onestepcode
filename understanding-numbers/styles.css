@@ -12,8 +12,12 @@
 .container {
   display: flex;
   justify-content: center;
-  margin: 1em;
+  margin: 16px;
   background: inherit;
+}
+
+.container.top {
+    margin-bottom: 1.5em;
 }
 
 .tab {
@@ -24,12 +28,29 @@
 }
 
 .value {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px black solid;
-  width: 2em;
-  height: 2em;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    border: 2px black solid;
+    width: 2.2em;
+    height: 2.2em;
+}
+
+sup {
+    align-self:flex-start;
+}
+
+.value.weightVal {
+    border: none;
+}
+
+#weights {
+    margin-bottom: 4px;
+}
+
+#bits {
+    margin-top: 4px;
 }
 
 .checkButton {
@@ -37,8 +58,8 @@
   justify-content: center;
   align-items: center;
   border: 2px white solid;
-  width: 2em;
-  height: 2em;
+  width: 32px;
+  height: 32px;
 }
 
 /* https://www.w3schools.com/howto/howto_css_switch.asp */
@@ -46,13 +67,13 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 1em;
-  height: 2em;
+  width: 16px;
+  height: 32px;
 }
 
 .horizontal{
-    width: 2em;
-    height: 1em;
+    width: 32px;
+    height: 16px;
 }
 
 /* Hide default HTML checkbox */
@@ -80,10 +101,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: .9em;
-  width: .9em;
-  left: .1em;
-  bottom: .1em;
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
@@ -106,20 +127,20 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateY(-.9em);
-  -ms-transform: translateY(-.9em);
-  transform: translateY(-.9em);
+  -webkit-transform: translateY(-14px);
+  -ms-transform: translateY(-14px);
+  transform: translateY(-14px);
 }
 
 input:checked + .slider.horizontal:before {
-  -webkit-transform: translateX(.9em);
-  -ms-transform: translateX(.9em);
-  transform: translateX(.9em);
+  -webkit-transform: translateX(14px);
+  -ms-transform: translateX(14px);
+  transform: translateX(14px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 1em;
+  border-radius: 16px;
 }
 
 .slider.round:before {
