@@ -34,17 +34,23 @@ function populateWeights(state) {
         else
             document.getElementById("weights").innerHTML +=
             `<div class='value weightVal'>2<sup>${i}</sup></div>`;
+        if (i % 4 == 0)
+            document.getElementById("weights").innerHTML +=
+            `<div class="separator"></div>`;
     }
 }
 
 function populateBits(state) {
-   for (let i=state.size-1; i>=0; i--) {
+    for (let i=state.size-1; i>=0; i--) {
         if (i==state.size-1)
             document.getElementById("bits").innerHTML +=
             `<div id='bit${i}' class='value bitVal sign'>${state.bits[i]}</div>`;
         else
             document.getElementById("bits").innerHTML +=
             `<div id='bit${i}' class='value bitVal'>${state.bits[i]}</div>`;
+        if (i % 4 == 0)
+            document.getElementById("bits").innerHTML +=
+            `<div class="separator"></div>`;
     }
 }
 
@@ -67,6 +73,9 @@ function populateSwitchs(state) {
     <span class="slider round"></span>
   </label>
 </div>`;
+        if (i % 4 == 0)
+            document.getElementById("switchs").innerHTML +=
+            `<div class="separator"></div>`;
     }
 }
 

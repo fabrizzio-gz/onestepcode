@@ -45,6 +45,10 @@ sup {
     border: none;
 }
 
+.separator {
+    width: 8px;
+}
+
 #weights {
     margin-bottom: 4px;
 }
