@@ -23,7 +23,7 @@
 }
 
 .tab {
-    font-size: 2.5em;
+    font-size: 1.5em;
     background: #ffffff;
     border-radius: 5px;
     margin: 0 1.5em;
@@ -35,8 +35,9 @@
     justify-content: center;
     align-items: center;
     border: 2px black solid;
-    width: 2.2em;
-    height: 2.2em;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
 }
 
 sup {
@@ -56,17 +57,31 @@ sup {
 }
 
 #bits {
+    font-family: monospace;
     margin-top: 4px;
 }
 
 .checkButton {
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
   align-items: center;
   border: 2px white solid;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
 }
+
+#value {
+    font-family: monospace;
+    font-size: 2rem;
+}
+
+.encodeOptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* https://www.w3schools.com/howto/howto_css_switch.asp */
  /* The switch - the box around the slider */
@@ -109,8 +124,8 @@ sup {
   content: "";
   height: 14px;
   width: 14px;
-  left: 2px;
-  bottom: 2px;
+  left: 1px;
+  bottom: 1px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
@@ -133,15 +148,15 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateY(-14px);
-  -ms-transform: translateY(-14px);
-  transform: translateY(-14px);
+  -webkit-transform: translateY(-15px);
+  -ms-transform: translateY(-15px);
+  transform: translateY(-15px);
 }
 
 input:checked + .slider.horizontal:before {
-  -webkit-transform: translateX(14px);
-  -ms-transform: translateX(14px);
-  transform: translateX(14px);
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
 }
 
 /* Rounded sliders */
@@ -153,8 +168,3 @@ input:checked + .slider.horizontal:before {
   border-radius: 50%;
 }
 
-.encodeOptions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
