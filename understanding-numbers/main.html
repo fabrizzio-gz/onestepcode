@@ -7,47 +7,54 @@
 </head> 
   
 <body>
-  <div class="container select">
-    <button class="tab" onclick="setSize(8)">
-      char
-    </button>
-    <button class="tab" onclick="setSize(16)">
-      short
-    </button>
-    <button class="tab" onclick="setSize(32)">
-      int
-    </button>
-  </div>
-<div id="weights" class="container">
-</div>
-
-<div id="bits" class="container bits">
-</div>
-
-<div id="switchs" class="container switchs">
-</div>
-
-<div id="value" class="container">
-</div>
-
-<div class="container">
-  <div class="encodeOptions">
-    Unsigned
-  </div>
+  <div class="center">
+     
+    <div class="super-container">
+ 
+      <div class="container">
+        <button class="tab" onclick="setSize(8)">
+          char
+        </button>
+        <button class="tab" onclick="setSize(16)">
+          short
+        </button>
+        <button class="tab" onclick="setSize(32)">
+          int
+        </button>
+      </div>
   
-  <div class="checkButton">
-    <label class="switch horizontal">
-      <input id="encodeCheck" type="checkbox" onchange="handleSwapEncoding()">
-      <span class="slider round horizontal"></span>
-    </label>
+      <div id="weights" class="container">
+      </div>
+
+      <div id="bits" class="container bits">
+      </div>
+
+      <div id="switchs" class="container switchs">
+      </div>
+
+      <div id="value" class="container">
+      </div>
+
+      <div class="container">
+        <div class="encodeOptions">
+          Unsigned
+        </div>
+  
+        <div class="checkButton">
+          <label class="switch horizontal">
+            <input id="encodeCheck" type="checkbox" onchange="handleSwapEncoding()">
+            <span class="slider round horizontal"></span>
+          </label>
+        </div>
+
+        <div class="encodeOptions">
+          Signed
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="encodeOptions">
-    Signed
-  </div>
-</div>
-
-<script src="script.js"></script> 
+  <script src="script.js"></script> 
 
 </body>
 </html>
