@@ -1,6 +1,8 @@
 .center {
+    flex: 1;
     display: flex;
     justify-content: center;
+    overflow: auto;
 }
 .super-container {
     display: inline-block;
@@ -21,7 +23,7 @@
 }
 
 .tab {
-    font-size: 1.2em;
+    font-size: 2.5em;
     background: #ffffff;
     border-radius: 5px;
     margin: 0 1.5em;
