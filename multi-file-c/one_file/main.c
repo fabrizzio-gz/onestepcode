@@ -34,11 +34,10 @@ int main() {
 /* Extra function definitions */
 void special_function(struct struct_type my_struct, union union_type my_union) {
   helper_function();
-  ;
 }
 
 
 void helper_function() {
-  ;
+  printf("helper function: I'm called by special_function!\n");
 }
 

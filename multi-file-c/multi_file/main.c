@@ -20,6 +20,6 @@ int main() {
 
 
 void helper_function() {
-  printf("I'm called from main!\n");
+  printf("helper function: I'm called from main!\n");
 }
 
