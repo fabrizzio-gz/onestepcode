@@ -1,8 +1,23 @@
-function getNumber(resolve, reject) {
-  const val = (Math.random() * 10).toFixed(0);
-  if (val > 5) resolve(val);
+function fetchValue(resolve, reject) {
+  let val;
+  if (Math.random() > 0.5) val = (Math.random() * 10).toFixed(0);
+
+  if (val) resolve(val);
   else reject(val);
 }
+
+function failureCallback(val) {
+  console.error(`Invalid value! Response was ${val}`);
+}
+
+function successCallback(val) {
+  console.log(`Succesfully retrieved ${val}!`);
+}
+
+/* Simple callback */
+fetchValue(successCallback, failureCallback);
+
+/* Extra callbacks */
 
 function checkParity(val, resolve, reject) {
   if (val % 2 == 0) resolve(val);
@@ -14,37 +29,32 @@ function divisibleByThree(val, resolve, reject) {
   else reject(val);
 }
 
-function failureCallback(val) {
-  console.error("Value ", val, " isn't large enough!");
+function failureCallbackParity(val) {
+  console.error("Value ", val, " isn't even!");
+}
+
+function failureCallbackDiv3(val) {
+  console.error("Value ", val, " isn't divisible by 3!");
 }
 
 function execute() {
-  getNumber(
-    function (largeValue) {
-      console.log(`Value ${largeValue} is large enough!`);
-      checkParity(
-        largeValue,
-        function (evenValue) {
-          console.log(`Value ${evenValue} is odd!`);
-          divisibleByThree(
-            evenValue,
-            function (finalValue) {
-              console.log(`Value ${finalValue} is divisible by 3!`);
-            },
-            function failureCallbackDiv3(val) {
-              console.error("Value ", val, " isn't divisible by 3!");
-            }
-          );
-        },
-        function failureCallbackParity(val) {
-          console.error("Value ", val, " isn't odd!");
-        }
-      );
-    },
-    function failureCallback(val) {
-      console.error("Value ", val, " isn't large enough!");
-    }
-  );
+  fetchValue(function (value) {
+    console.log(`Succesfully retrieved ${value}!`);
+    checkParity(
+      value,
+      function (evenValue) {
+        console.log(`Value ${evenValue} is even!`);
+        divisibleByThree(
+          evenValue,
+          function (finalValue) {
+            console.log(`Value ${finalValue} is divisible by 3!`);
+          },
+          failureCallbackDiv3
+        );
+      },
+      failureCallbackParity
+    );
+  }, failureCallback);
 }
 
 execute();
