@@ -1,20 +1,26 @@
 const svg = document.getElementById("svg");
 
-const getTranslate = (element) => {
+const getTransformParameters = (element) => {
   const transform = element.style.transform;
-  let x = 0,
+  let scale = 1,
+    x = 0,
     y = 0;
+
+  if (transform.includes("scale"))
+    scale = parseFloat(transform.slice(transform.indexOf("scale") + 6));
   if (transform.includes("translateX"))
     x = parseInt(transform.slice(transform.indexOf("translateX") + 11));
-
   if (transform.includes("translateY"))
     y = parseInt(transform.slice(transform.indexOf("translateY") + 11));
 
-  return { x, y };
+  return { scale, x, y };
 };
 
+const getTransformString = (scale, x, y) =>
+  "scale(" + scale + ") " + "translateX(" + x + "%) translateY(" + y + "%)";
+
 const pan = (direction) => {
-  const { x, y } = getTranslate(svg);
+  const { scale, x, y } = getTransformParameters(svg);
   let dx = 0,
     dy = 0;
   switch (direction) {
@@ -31,11 +37,21 @@ const pan = (direction) => {
       dy = 1;
       break;
   }
-  svg.style.transform =
-    "translateX(" + (x + dx) + "%) translateY(" + (y + dy) + "%)";
+  svg.style.transform = getTransformString(scale, x + dx, y + dy);
+};
+
+const zoom = (direction) => {
+  const { scale, x, y } = getTransformParameters(svg);
+  let dScale = 0.1;
+  if (direction == "out") dScale *= -1;
+
+  svg.style.transform = getTransformString(scale + dScale, x, y);
 };
 
 document.getElementById("left-button").onclick = () => pan("left");
 document.getElementById("right-button").onclick = () => pan("right");
 document.getElementById("up-button").onclick = () => pan("up");
 document.getElementById("down-button").onclick = () => pan("down");
+
+document.getElementById("zoom-in-button").onclick = () => zoom("in");
+document.getElementById("zoom-out-button").onclick = () => zoom("out");

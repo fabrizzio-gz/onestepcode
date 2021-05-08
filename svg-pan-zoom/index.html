@@ -7,19 +7,27 @@
   </head>
 
   <body>
-    <button id="left-button">left</button>
-    <button id="right-button">right</button>
-    <button id="up-button">up</button>
-    <button id="down-button">down</button>
-    <svg
-      id="svg"
-      width="500"
-      height="500"
-      viewBox="0 0 500 500"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="250" cy="250" r="100" />
-    </svg>
+    <div class="container">
+      <div class="container row">
+        <button id="left-button">left</button>
+        <button id="right-button">right</button>
+        <button id="up-button">up</button>
+        <button id="down-button">down</button>
+        <button id="zoom-in-button">zoom-in</button>
+        <button id="zoom-out-button">zoom-out</button>
+      </div>
+      <div class="svg-container">
+        <svg
+          id="svg"
+          width="500"
+          height="500"
+          viewBox="0 0 500 500"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="250" cy="250" r="100" />
+        </svg>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
