@@ -44,6 +44,7 @@ const zoom = (direction) => {
   const { scale, x, y } = getTransformParameters(svg);
   let dScale = 0.1;
   if (direction == "out") dScale *= -1;
+  if (scale == 0.1 && direction == "out") dScale = 0;
   svg.style.transform = getTransformString(scale + dScale, x, y);
 };
 
