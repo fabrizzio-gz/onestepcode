@@ -1,0 +1,25 @@
+#map {
+  height: 400px;
+  width: 400px;
+}
+
+.container {
+  width: 100px;
+  height: 100px;
+}
+
+.svg-icon path {
+  fill: crimson;
+}
+
+.green path {
+  fill: darkgreen;
+}
+
+.blue path {
+  fill: navy;
+}
+
+.golden path {
+  fill: gold;
+}

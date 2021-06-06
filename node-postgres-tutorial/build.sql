@@ -1,3 +1,5 @@
+-- Setting up database
+
 -- sudo -u posrgres
 CREATE USER my_user WITH PASSWORD '12356';
 CREATE DATABASE db WITH OWNER='my_user';
